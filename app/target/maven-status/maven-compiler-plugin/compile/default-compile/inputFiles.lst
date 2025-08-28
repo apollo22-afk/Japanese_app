@@ -1,4 +1,8 @@
-/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/App.java
-/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/Menu.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/controllers/App.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/controllers/DatabaseController.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/controllers/Menu.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/controllers/Practice.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/database/Database.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/database/InitDB.java
+/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/database/UserDAO.java
 /home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/module-info.java
-/home/kamiyoshi/programacao/pessoal/java/javafx/teste/app/src/main/java/com/example/Practice.java

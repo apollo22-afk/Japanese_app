@@ -1,4 +1,8 @@
-com/example/App.class
+com/example/controllers/App.class
+com/example/database/UserDAO.class
+com/example/database/Database.class
+com/example/database/InitDB.class
 module-info.class
-com/example/Menu.class
-com/example/Practice.class
+com/example/controllers/Menu.class
+com/example/controllers/DatabaseController.class
+com/example/controllers/Practice.class

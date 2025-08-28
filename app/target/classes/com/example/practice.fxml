@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.geometry.Insets?>
 
-<StackPane fx:id="root" xmlns="[http://javafx.com/javafx/17](http://javafx.com/javafx/17)" xmlns:fx="[http://javafx.com/fxml/1](http://javafx.com/fxml/1)" fx:controller="com.example.Practice">
+<StackPane fx:id="root" xmlns="[http://javafx.com/javafx/17](http://javafx.com/javafx/17)" xmlns:fx="[http://javafx.com/fxml/1](http://javafx.com/fxml/1)" fx:controller="com.example.controllers.Practice">
 
     <!-- Conteúdo principal -->
     <VBox spacing="10" alignment="CENTER">
