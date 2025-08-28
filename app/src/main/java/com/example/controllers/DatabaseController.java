@@ -3,6 +3,7 @@ package com.example.controllers;
 import com.example.database.Database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -23,17 +24,18 @@ public class DatabaseController {
     @FXML
     private Label teste;
 
-    public void listarFrases() {
-        /*try (Connection conn = Database.getConnection()) {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM frases");
+    public void listarVerbos() {
+        try (Connection conn = Database.getConnection()) {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM verbs");
             while (rs.next()) {
                 System.out.println(rs.getInt("id") + " | " +
-                                   rs.getString("japones") + " -> " +
-                                   rs.getString("traducao"));
+                                   rs.getString("verb") + " -> " +
+                                   rs.getString("translation") +
+                                   rs.getString("type"));
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     @FXML
@@ -41,7 +43,9 @@ public class DatabaseController {
         type.setItems(FXCollections.observableArrayList("Ichidan", "Godan", "Irregular"));
         Font noto = Font.loadFont(getClass().getResourceAsStream("/fonts/NotoSansJP-Regular.ttf"), 16);
         teste.setFont(noto);
-        insertVerbs.setFont(noto);    }
+        insertVerbs.setFont(noto);    
+        insertVerbs.requestFocus();
+    }
 
     @FXML
     public void inserirVerbos(){
@@ -65,13 +69,7 @@ public class DatabaseController {
                 stmt.setString(3, selected);
                 stmt.executeUpdate();
             }else
-
-                stmt.setString(1, "食べる"); // exemplo japonês
-                stmt.setString(2, "comer");
-                stmt.setString(3, "Ichidan");
-                stmt.executeUpdate();
-                System.out.println("valores gravados com sucesso");
-                //throw new IllegalArgumentException("Preencha todos os campos!");
+                throw new IllegalArgumentException("Preencha todos os campos!");
             
         } catch (Exception e) {
             e.printStackTrace();
