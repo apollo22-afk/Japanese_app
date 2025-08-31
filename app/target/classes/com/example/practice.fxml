@@ -11,7 +11,7 @@
     <!-- Conteúdo principal -->
     <VBox spacing="10" alignment="CENTER">
         <Label text="Practice"/>
-        <Button text="Conjugar Verbos"/>
+        <Button text="Conjugar Verbos" onAction="#switchConjVerbs"/>
         <Button text="Completar Frases"/>
         <Button text="Traduzir"/>
         <Button text="Voltar" onAction="#switchToMenu"/>
@@ -27,6 +27,3 @@
     </VBox>
 
 </StackPane>
-
-
-

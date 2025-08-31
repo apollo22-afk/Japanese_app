@@ -42,6 +42,11 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.41.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>polyglot</artifactId>
+            <version>24.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -55,6 +60,23 @@
                     <mainClass>com.example.controllers.App</mainClass>
                 </configuration>
             </plugin>
+
+	    <plugin>
+              	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-assembly-plugin</artifactId>
+            	<version>3.3.0</version>
+            	<configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>com.example.controllers.App</mainClass> <!-- Classe principal -->
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            	</configuration>
+        </plugin>
+
         </plugins>
     </build>
 
