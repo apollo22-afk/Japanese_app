@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 
@@ -12,6 +13,11 @@ public class Practice {
     @FXML
     private void switchToMenu() throws IOException {
         App.setRoot("menu");
+    }
+
+    @FXML
+    private void switchConjVerbs() throws IOException {
+        App.setRoot("verbConj");
     }
 
     @FXML
