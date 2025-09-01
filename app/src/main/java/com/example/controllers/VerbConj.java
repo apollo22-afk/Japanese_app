@@ -38,6 +38,7 @@ public class VerbConj {
         this.grupo = "Ichidan";
         this.forma = "Nai";
         pergunta.setText("Conjulgue o verbo " + verbo + " na forma " + forma);
+        placar.setText("Acertos: " + this.acertos);
         this.resultado = Conjugator.conjugate(verbo, grupo, forma);
     }
 
@@ -47,9 +48,7 @@ public class VerbConj {
             this.acertos += 1;
             novaPergunta();
 
-        }else
-            System.out.println("Erro: " + answer.getText());
-            System.out.println("Erro: " + this.resultado);
+        }
 
     }
 }

@@ -3,32 +3,41 @@ package com.example.controllers;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.nio.file.Paths;
 
 public class Conjugator {
 
-    private static final String NODE_SCRIPT = "./motor/motor1/conjugator.mjs";
+    // Pega o recurso do classpath
+    private static final String NODE_SCRIPT;
+
+    static {
+        URL resource = Conjugator.class.getResource("/com/example/motor/conjugator.mjs");
+        if (resource == null) {
+            throw new RuntimeException("conjugator.mjs não encontrado no classpath!");
+        }
+        NODE_SCRIPT = Paths.get(resource.getPath()).toAbsolutePath().toString();
+    }
 
     public static String conjugate(String verb, String grupo, String form) {
         try {
-            // Cria processo Node.js
             ProcessBuilder pb = new ProcessBuilder("node", NODE_SCRIPT);
             Process process = pb.start();
 
-            // Escreve a entrada no stdin do Node
+            // envia dados para o Node
             try (OutputStreamWriter writer = new OutputStreamWriter(process.getOutputStream())) {
                 writer.write(verb + " " + grupo + " " + form + "\n");
                 writer.flush();
             }
 
-            // Lê toda a saída e junta em uma string
+            // lê saída
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                 StringBuilder sb = new StringBuilder();
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    sb.append(line.trim());  // trim() remove \n e espaços extras
+                    sb.append(line.trim());
                 }
-                String result = sb.toString();
-                return result.isEmpty() ? "" : result;
+                return sb.toString();
             }
 
         } catch (Exception e) {
@@ -37,4 +46,5 @@ public class Conjugator {
         }
     }
 }
+
 
